@@ -14,6 +14,7 @@ def application(env, start_response):
 
     response_string = reduce(
             lambda res, row: res + "Name: {}, Single Malt: {}\n".format(row[0], row[1]),
+            results,
             ""
             )
     start_response('200 OK', [('Content-Type', 'text/plain')])
