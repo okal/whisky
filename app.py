@@ -1,5 +1,6 @@
 from psycopg2 import connect
 from os import environ
+from functools import reduce
 
 def application(env, start_response):
     connection = connect(
