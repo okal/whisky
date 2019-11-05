@@ -22,6 +22,8 @@ resource "docker_container" "whisky" {
 		external = 9090
 	}
 
+	env = ["DB_HOST=db", "DB_USER=postgres", "DB_NAME=whisky"]
+
 	networks_advanced {
 		name = "${docker_network.whisky.name}"
 	}
