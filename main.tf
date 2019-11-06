@@ -12,6 +12,11 @@ resource "docker_container" "db" {
 	networks_advanced {
 		name = "${docker_network.whisky.name}"
 	}
+
+	volumes {
+		host_path = "${path.cwd}/volumes/db/docker-entrypoint-initdb.d"
+		container_path = "/docker-entrypoint-initdb.d"
+	}
 }
 
 resource "docker_container" "whisky" {
